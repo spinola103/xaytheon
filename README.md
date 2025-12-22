@@ -1,4 +1,9 @@
+## Xaytheon 
+Selected in Social Winter of Code (SWoC)
+<img width="1300" height="400" alt="image" src="https://github.com/user-attachments/assets/6bf856a4-0da4-4505-a433-f54797283dc4" />
 
+This project has been selected for Social Winter of Code (SWoC), and is actively open to community contributions.
+Before contributing, please read CONTRIBUTION.md carefully.
 
 ## What is Xaytheon?
 
