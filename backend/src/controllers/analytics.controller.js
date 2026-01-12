@@ -6,7 +6,7 @@ const analyticsModel = require("../models/analytics.model");
  */
 exports.createSnapshot = async (req, res) => {
     try {
-        const userId = req.user.id; // From auth middleware
+        const userId = req.userId; // From auth middleware
         const { githubUsername, snapshotData } = req.body;
 
         if (!githubUsername || !snapshotData) {
@@ -43,7 +43,7 @@ exports.createSnapshot = async (req, res) => {
  */
 exports.getSnapshots = async (req, res) => {
     try {
-        const userId = req.user.id;
+        const userId = req.userId;
         const { startDate, endDate, limit } = req.query;
 
         let snapshots;
@@ -82,7 +82,7 @@ exports.getSnapshots = async (req, res) => {
  */
 exports.getLatestSnapshot = async (req, res) => {
     try {
-        const userId = req.user.id;
+        const userId = req.userId;
         const snapshot = await analyticsModel.getLatestSnapshot(userId);
 
         if (!snapshot) {
@@ -112,7 +112,7 @@ exports.getLatestSnapshot = async (req, res) => {
  */
 exports.getAggregatedStats = async (req, res) => {
     try {
-        const userId = req.user.id;
+        const userId = req.userId;
         const { startDate, endDate } = req.query;
 
         if (!startDate || !endDate) {
@@ -148,7 +148,7 @@ exports.getAggregatedStats = async (req, res) => {
  */
 exports.getGrowthMetrics = async (req, res) => {
     try {
-        const userId = req.user.id;
+        const userId = req.userId;
         const { startDate, endDate } = req.query;
 
         if (!startDate || !endDate) {
@@ -191,7 +191,7 @@ exports.getGrowthMetrics = async (req, res) => {
  */
 exports.exportData = async (req, res) => {
     try {
-        const userId = req.user.id;
+        const userId = req.userId;
         const { format = "json", startDate, endDate } = req.query;
 
         let snapshots;
